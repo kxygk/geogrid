@@ -1,0 +1,23 @@
+{:deps
+ {kxygk/geoprim
+  {:local/root
+   "../geoprim"}
+  ;;
+  thi.ng/geom
+  {:mvn/version
+   "1.0.0-RC4"}
+  ;;
+  thi.ng/math
+  {:mvn/version
+   "0.3.0"}
+  ;;
+  thi.ng/ndarray
+  {:mvn/version
+   "0.3.2"}
+  ;;
+  thi.ng/color
+  {:mvn/version
+   "1.4.0"}}
+ :paths
+ ["."]
+}

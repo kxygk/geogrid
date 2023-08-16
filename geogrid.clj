@@ -209,3 +209,27 @@
            max-value)
          (Math/abs
            min-value))))))
+
+(defn
+  covered-region
+  "Uses the region parameters to calculate
+  and then return the region covered by the grid"
+  [input-grid]
+  (let [norwes-corner (-> input-grid
+                          corner)
+        [width
+         height]      (-> input-grid
+                          dimension-pix)
+        [eas-res
+         sou-res]     (-> input-grid
+                          eassou-res)]
+    {:norwes norwes-corner
+     :soueas {:eas (+ (-> norwes-corner
+                          :eas)
+                      (* width
+                         eas-res))
+              :sou (+ (-> norwes-corner
+                          :sou)
+                      (* height
+                         sou-res))}}))
+

@@ -223,13 +223,13 @@
         [eas-res
          sou-res]     (-> input-grid
                           eassou-res)]
-    {:norwes norwes-corner
-     :soueas {:eas (+ (-> norwes-corner
-                          :eas)
-                      (* width
-                         eas-res))
-              :sou (+ (-> norwes-corner
-                          :sou)
-                      (* height
-                         sou-res))}}))
-
+      (let[soueas-corner (point-eassou (+ (-> norwes-corner
+                                              :eas)
+                                          (* width
+                                             eas-res))
+                                       (+ (-> norwes-corner
+                                              :sou)
+                                          (* height
+                                             sou-res)))]
+    (region norwes-corner
+            soueas-corner))))

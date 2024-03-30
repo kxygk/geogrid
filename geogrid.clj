@@ -36,6 +36,30 @@
     "Return a subregion of the grid - consisting of all points in the region bounds"))
 
 (defn
+  params
+  "Extract all the parameters into a list
+  [width-pix
+   height-pix
+   eas-res
+   sou-res
+   norwes-point]
+  Used to initialized a new grid in for example `geogrid4seq/build-grid`"
+  [given-grid]
+  (let [[width
+         height]     (-> given-grid
+                         dimension-pix)
+        [eas-res
+         sou-res]    (-> given-grid
+                         dimension-pix)
+        norwes-point (-> given-grid
+                         corner)]
+    [width
+     height
+     eas-res
+     sou-res
+     norwes-point]))
+
+(defn
   point-to-pix
   "Given `grid` 
   Return the pixel within which a given `point` lies.
